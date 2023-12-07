@@ -1,7 +1,7 @@
 import CloseIconRound from "../../assets/icons/CloseIconRound";
 import "./styles.sass";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 interface ImageModalProps {
   imageUrl: string;
@@ -14,6 +14,13 @@ const ImageModal: React.FC<ImageModalProps> = ({
   altDescription,
   onClose,
 }) => {
+  useEffect(() => {
+    document.body.classList.add("locked-scroll");
+    return () => {
+      document.body.classList.remove("locked-scroll");
+    };
+  }, []);
+
   return (
     <div className="image-modal">
       <div className="modal-background" onClick={onClose}></div>
