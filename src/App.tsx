@@ -55,8 +55,6 @@ const App: React.FC = () => {
           },
         });
 
-        console.log(data);
-
         const remainingRequests = headers["x-ratelimit-remaining"];
 
         if (remainingRequests === "0") {
