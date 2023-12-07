@@ -23,6 +23,7 @@
         width: 100%
         max-width: 89%
         padding: 2.5rem 0
+        padding-top: 104px
 
 h1
   font-size: 45px
@@ -38,21 +39,36 @@ h4
   min-height: $height-input
 
 .search-section
-  margin: 235px auto 0 auto
-  max-width: 510px
+  position: fixed
+  top: 276px
+  background-color: $c-white
+  z-index: 1000
+  width: 100%
+  max-width: 89%
+  margin: 0 auto
+  transition: transform 0.3s ease
   .search-form
     display: flex
     gap: 8px
+    max-width: 510px
+    margin: 0 auto
   &.searched
+    top: 0
     margin: 0
     margin-bottom: 2rem
-
+    transform: translateY(0)
+    .search-form
+      margin: 0
+      margin-top: 40px
+      margin-bottom: 16px
+      margin: 40px 0 16px 0
 
 .images
   width: 100%
   display: grid
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
   grid-gap: 8px
+  margin-top: 16px
   .image-container
     width: 100%
     aspect-ratio: 1/ 1
@@ -74,24 +90,27 @@ h4
   padding-top: 1.6rem
   color: #787878
 
+.locked-scroll
+  overflow: hidden
+
 @media only screen and (max-width: 925px)
   #root .main .mainBody .container
     max-width: 92%
-    padding: 1.5rem 0
 
   .search-section
-    margin-top: 220px
+    max-width: 92%
 
   .images
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
 
 @media only screen and (max-width: 506px)
   #root .main .mainBody .container
-    max-width: 92%
-    // padding: 1.5rem 0
+    padding-top: 84px
 
   .search-section
-    margin-top: 220px
+    &.searched
+      .search-form
+        margin-top: 20px
 
   .images
     grid-template-columns: repeat(auto-fill, minmax(114px, 1fr))
